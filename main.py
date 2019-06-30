@@ -1,5 +1,5 @@
 import argparse
-from entryGenerator import generateEntry
+from src.entryGenerator import generateEntry
 
 parser = argparse.ArgumentParser(description='The machine to generate changelogs.')
 parser.add_argument('entry', help='To create an entry.', action='store_true')
