@@ -6,4 +6,5 @@ dist/
 build/
 changelog-machine.spec
 .venv
+Changelog_machine.egg-info
 

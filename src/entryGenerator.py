@@ -2,14 +2,14 @@ import argparse
 import re
 import os
 
-def generateEntry():
 
+def generateEntry():
     parser = argparse.ArgumentParser(description='Create a changelog entry.')
     parser.add_argument('entry', help='To create an entry.', action='store_true')
     parser.add_argument('-i', '--issue-id', help='The issue id without the #', default='')
     parser.add_argument('-mr', '--merge-request', help='The merge request id', default='')
     parser.add_argument('-a', '--author', help='The author of the change', default='')
-    parser.add_argument('-m', '--message', help='The merge request id', required = True)
+    parser.add_argument('-m', '--message', help='The merge request id', required=True)
 
     args, unknown = parser.parse_known_args()
 
