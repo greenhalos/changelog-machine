@@ -1,7 +1,7 @@
 import argparse
 
 
-def generateChangelog():
+def generate_changelog():
     parser = argparse.ArgumentParser(description="Create a changelog entry.")
     parser.add_argument(
         "changelog", help="To generate or append the changelog.", action="store_true"

@@ -3,7 +3,7 @@ import re
 import os
 
 
-def generateEntry():
+def generate_entry():
     parser = argparse.ArgumentParser(description="Create a changelog entry.")
     parser.add_argument("entry", help="To create an entry.", action="store_true")
     parser.add_argument(

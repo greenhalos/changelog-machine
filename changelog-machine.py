@@ -1,7 +1,7 @@
 import argparse
 import sys
-from src.entryGenerator import generateEntry
-from src.changelogGenerator import generateChangelog
+from src.entryGenerator import generate_entry
+from src.changelogGenerator import generate_changelog
 
 if __name__ == "__main__":
 
@@ -16,8 +16,8 @@ if __name__ == "__main__":
     if len(arguments) < 2:
         parser.print_help()
     elif arguments[1] == "entry":
-        generateEntry()
+        generate_entry()
     elif arguments[1] == "changelog":
-        generateChangelog()
+        generate_changelog()
     else:
         args = parser.parse_known_args()
