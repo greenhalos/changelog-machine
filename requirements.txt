@@ -1,1 +1,2 @@
 setuptools~=41.6.0
+pyyaml~=5.3.1
