@@ -13,7 +13,7 @@ def generateEntry():
         "-mr", "--merge-request", help="The merge request id", default=""
     )
     parser.add_argument("-a", "--author", help="The author of the change", default="")
-    parser.add_argument("-m", "--message", help="The merge request id", required=True)
+    parser.add_argument("-m", "--message", help="The message of the entry", required=True)
 
     args, unknown = parser.parse_known_args()
 
