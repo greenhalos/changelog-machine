@@ -2,6 +2,7 @@ import argparse
 import os
 import re
 
+from src.Config import Config
 from src.NewChangelog import new_changelog, delete_unreleased_yaml
 from src.versions.VersionUtil import sort_versions
 
@@ -14,20 +15,30 @@ def generate_changelog():
     parser.add_argument(
         "--releaseVersion", help="The version of the release", required=True
     )
+    parser.add_argument(
+        "--config",
+        help="The config file (default: ./changelogs/config.yml)",
+        default="./changelogs/config.yml",
+    )
 
     args, unknown = parser.parse_known_args()
 
     print("Hello I will generate your changelog")
-    changelog_file_name = "CHANGELOG.md"
+    config = Config(args.config)
+    changelog_file_name = config.get_changelog_file()
     if not os.path.isfile(changelog_file_name):
-        print("No '{}' found. I will generate an empty one for you...".format(changelog_file_name))
+        print(
+            "No '{}' found. I will generate an empty one for you...".format(
+                changelog_file_name
+            )
+        )
         open(changelog_file_name, "w").close()
 
     with open(changelog_file_name, "r") as changelog_file:
         content = changelog_file.read()
 
     changelog = dict()
-    changelog[args.releaseVersion] = new_changelog(args.releaseVersion)
+    changelog[args.releaseVersion] = new_changelog(args.releaseVersion, config)
     no_entry_content = ""
     current_version = None
     for line in content.split("\n"):

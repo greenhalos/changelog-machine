@@ -2,6 +2,8 @@ import argparse
 import re
 import os
 
+from src.Config import Config
+
 
 def generate_entry():
     parser = argparse.ArgumentParser(description="Create a changelog entry.")
@@ -16,19 +18,26 @@ def generate_entry():
     parser.add_argument(
         "-m", "--message", help="The message of the entry", required=True
     )
+    parser.add_argument(
+        "--config",
+        help="The config file (default: ./changelogs/config.yml)",
+        default="./changelogs/config.yml",
+    )
 
     args, unknown = parser.parse_known_args()
 
+    config = Config(args.config)
+
     entry = """---
-    title: '{}'
-    merge_request: {}
-    issue: {}
-    author: {}
-    """.format(
+title: '{}'
+merge_request: {}
+issue: {}
+author: {}
+""".format(
         args.message, args.merge_request, args.issue_id, args.author
     )
 
-    directory = "./changelogs/unreleased"
+    directory = config.get_unreleased_changelog_entries_path()
 
     if not os.path.exists(directory):
         os.makedirs(directory)

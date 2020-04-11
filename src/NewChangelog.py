@@ -4,18 +4,20 @@ from os import walk
 
 import yaml
 
+from src.Config import Config
+
 
 def render_title(version):
     today = datetime.today().strftime("%Y-%m-%d")
     return "## {} ({})".format(version, today)
 
 
-def new_changelog(version):
-    changelog_entries_path = "changelogs/unreleased"
-    mr_base_url = "https://git.de/merge_requests/{id}"
-    issue_base_url = "https://git.de/issues/{id}"
+def new_changelog(version, config: Config):
+    unreleased_changelog_entries_path = config.get_unreleased_changelog_entries_path()
+    mr_base_url = config.get_merge_request_url()
+    issue_base_url = config.get_issue_url()
     entries = ""
-    for (dirpath, dirnames, filenames) in walk(changelog_entries_path):
+    for (dirpath, dirnames, filenames) in walk(unreleased_changelog_entries_path):
         for file_name in filenames:
             if file_name.endswith(".yml"):
                 file_path = "{}/{}".format(dirpath, file_name)

@@ -10,3 +10,4 @@ Changelog_machine.egg-info
 changelogs
 CHANGELOG.md
 CHANGELOG.md.bak
+scripts/quickTest.sh
