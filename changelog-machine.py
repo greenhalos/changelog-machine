@@ -1,7 +1,7 @@
 import argparse
 import sys
 from src.entryGenerator import generate_entry_cli
-from src.changelogGenerator import generate_changelog
+from src.changelogGenerator import generate_changelog_cli
 
 if __name__ == "__main__":
 
@@ -18,6 +18,6 @@ if __name__ == "__main__":
     elif arguments[1] == "entry":
         generate_entry_cli()
     elif arguments[1] == "changelog":
-        generate_changelog()
+        generate_changelog_cli()
     else:
         args = parser.parse_known_args()

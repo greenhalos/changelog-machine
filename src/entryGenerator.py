@@ -51,7 +51,9 @@ author: '{}'
     filename = "{}/{}.yml".format(directory, re.sub("[^0-9a-zA-Z]+", "_", message))
     index = 0
     while os.path.isfile(filename):
-        filename = "{}/{}.yml".format(directory, re.sub("[^0-9a-zA-Z]+", "_", message + "_" + str(index)))
+        filename = "{}/{}.yml".format(
+            directory, re.sub("[^0-9a-zA-Z]+", "_", message + "_" + str(index))
+        )
         index = index + 1
     with open(filename, "w") as out:
         out.write(entry)

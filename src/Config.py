@@ -10,7 +10,7 @@ def default_config():
 
 
 class Config:
-    def __init__(self, config_file_path):
+    def __init__(self, config_file_path: str):
         self.config = default_config()
         if os.path.isfile(config_file_path):
             self.config_file_path = config_file_path

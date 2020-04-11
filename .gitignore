@@ -11,3 +11,5 @@ changelogs
 CHANGELOG.md
 CHANGELOG.md.bak
 scripts/quickTest.sh
+!tests/src/integration_tests/*/expected/**
+!tests/src/integration_tests/*/setup/**
