@@ -6,7 +6,7 @@ dist/
 build/
 changelog-machine.spec
 .venv
-Changelog_machine.egg-info
+changelog_machine.egg-info
 changelogs
 CHANGELOG.md
 CHANGELOG.md.bak
