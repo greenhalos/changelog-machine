@@ -1,17 +1,21 @@
-from unittest import TestCase
+import pytest
 
 from src.versions.VersionUtil import VersionNumber
 
 
-class TestVersionNumber(TestCase):
-    def testAdd(self):
-        version_less_then("", "1.1.1", self)
-        version_less_then("1.1", "1.1.1", self)
-        version_less_then("1.1.1", "1.2.1", self)
-        version_less_then("1.1.1", "1.20.1", self)
-        version_less_then("1.1.1", "1.1rc.1", self)
+class TestVersionNumber:
+    testdata = [
+        ("", "1.1.1"),
+        ("1.1", "1.1.1"),
+        ("1.1.1", "1.2.1"),
+        ("1.1.1", "1.20.1"),
+        ("1.1.1", "1.1rc.1"),
+    ]
 
+    @pytest.mark.parametrize("v1, v2", testdata)
+    def test_lt(self, v1, v2):
+        assert VersionNumber(v1).__lt__(VersionNumber(v2))
+        assert not VersionNumber(v2).__lt__(VersionNumber(v1))
 
-def version_less_then(v1, v2, self):
-    self.assertEqual(VersionNumber(v1).__lt__(VersionNumber(v2)), True)
-    self.assertEqual(VersionNumber(v2).__lt__(VersionNumber(v1)), False)
+    def test_lt_when_equal(self):
+        assert not VersionNumber("1.1.1").__lt__(VersionNumber("1.1.1"))
