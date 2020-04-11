@@ -32,7 +32,7 @@ def generate_entry():
 title: '{}'
 merge_request: {}
 issue: {}
-author: {}
+author: '{}'
 """.format(
         args.message, args.merge_request, args.issue_id, args.author
     )
@@ -43,5 +43,9 @@ author: {}
         os.makedirs(directory)
 
     filename = "{}/{}.yml".format(directory, re.sub("[^0-9a-zA-Z]+", "_", args.message))
+    index = 0
+    while os.path.isfile(filename):
+        filename = "{}/{}.yml".format(directory, re.sub("[^0-9a-zA-Z]+", "_", args.message + "_" + index))
+        index = index + 1
     with open(filename, "w") as out:
         out.write(entry)
