@@ -8,7 +8,6 @@ setuptools.setup(
     version="0.4.0",
     author="Ben Antony",
     author_email="antony@greenhalos.lu",
-    scripts=["dokr"],
     description="A tool to generate changelogs integrated in a pull/merge request workflow",
     long_description=long_description,
     long_description_content_type="text/markdown",
