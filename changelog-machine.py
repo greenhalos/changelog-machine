@@ -1,6 +1,6 @@
 import argparse
 import sys
-from src.entryGenerator import generate_entry
+from src.entryGenerator import generate_entry_cli
 from src.changelogGenerator import generate_changelog
 
 if __name__ == "__main__":
@@ -16,7 +16,7 @@ if __name__ == "__main__":
     if len(arguments) < 2:
         parser.print_help()
     elif arguments[1] == "entry":
-        generate_entry()
+        generate_entry_cli()
     elif arguments[1] == "changelog":
         generate_changelog()
     else:

@@ -5,7 +5,7 @@ import os
 from src.Config import Config
 
 
-def generate_entry():
+def generate_entry_cli():
     parser = argparse.ArgumentParser(description="Create a changelog entry.")
     parser.add_argument("entry", help="To create an entry.", action="store_true")
     parser.add_argument(
@@ -28,24 +28,30 @@ def generate_entry():
 
     config = Config(args.config)
 
+    message = args.message
+    merge_request = args.merge_request
+    issue_id = args.issue_id
+    author = args.author
+    directory = config.get_unreleased_changelog_entries_path()
+
+    _generate_entry(author, directory, issue_id, merge_request, message)
+
+
+def _generate_entry(author, directory, issue_id, merge_request, message):
     entry = """---
 title: '{}'
 merge_request: {}
 issue: {}
 author: '{}'
 """.format(
-        args.message, args.merge_request, args.issue_id, args.author
+        message, merge_request, issue_id, author
     )
-
-    directory = config.get_unreleased_changelog_entries_path()
-
     if not os.path.exists(directory):
         os.makedirs(directory)
-
-    filename = "{}/{}.yml".format(directory, re.sub("[^0-9a-zA-Z]+", "_", args.message))
+    filename = "{}/{}.yml".format(directory, re.sub("[^0-9a-zA-Z]+", "_", message))
     index = 0
     while os.path.isfile(filename):
-        filename = "{}/{}.yml".format(directory, re.sub("[^0-9a-zA-Z]+", "_", args.message + "_" + index))
+        filename = "{}/{}.yml".format(directory, re.sub("[^0-9a-zA-Z]+", "_", message + "_" + str(index)))
         index = index + 1
     with open(filename, "w") as out:
         out.write(entry)
