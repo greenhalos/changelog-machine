@@ -1,8 +1,8 @@
 import argparse
 import sys
 
-from changelog_machine.changelogGenerator import generate_changelog_cli
-from changelog_machine.entryGenerator import generate_entry_cli
+from changelog_machine.ChangelogGenerator import generate_changelog_cli
+from changelog_machine.EntryGenerator import generate_entry_cli
 
 
 def main():

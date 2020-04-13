@@ -2,8 +2,8 @@ import os
 from unittest import mock
 from datetime import datetime
 
-from changelog_machine.changelogGenerator import _generate_changelog
-from changelog_machine.entryGenerator import _generate_entry
+from changelog_machine.ChangelogGenerator import _generate_changelog
+from changelog_machine.EntryGenerator import _generate_entry
 
 
 def content_of_setup(path):
@@ -38,7 +38,7 @@ def test_no_changelog_file(tmpdir):
     unreleased_dir = changelogs_dir.mkdir("unreleased")
 
     _generate_entry("author", unreleased_dir, 123, 124, "Message")
-    with mock.patch('changelog_machine.NewChangelog.get_today', return_value=datetime(2020, 4, 11)):
+    with mock.patch('changelog_machine.ChangelogGenerator.get_today', return_value=datetime(2020, 4, 11)):
         _generate_changelog(config_file, "1.1.0")
 
     content_matches_expected(tmpdir)

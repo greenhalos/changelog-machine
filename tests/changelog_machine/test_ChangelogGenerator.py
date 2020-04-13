@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from changelog_machine.NewChangelog import render_entry, render_title
+from changelog_machine.ChangelogGenerator import render_entry, render_title
 
 
 class Test:
