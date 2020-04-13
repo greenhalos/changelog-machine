@@ -8,8 +8,12 @@ from changelog_machine.Config import Config
 
 
 def render_title(version):
-    today = datetime.today().strftime("%Y-%m-%d")
+    today = get_today().strftime("%Y-%m-%d")
     return "## {} ({})".format(version, today)
+
+
+def get_today():
+    return datetime.today()
 
 
 def new_changelog(version, config: Config):
