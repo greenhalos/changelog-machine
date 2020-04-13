@@ -2,7 +2,7 @@ import argparse
 import re
 import os
 
-from src.Config import Config
+from changelog_machine.Config import Config
 
 
 def generate_entry_cli():

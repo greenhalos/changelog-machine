@@ -1,10 +1,11 @@
 import argparse
 import sys
-from src.entryGenerator import generate_entry_cli
-from src.changelogGenerator import generate_changelog_cli
 
-if __name__ == "__main__":
+from changelog_machine.changelogGenerator import generate_changelog_cli
+from changelog_machine.entryGenerator import generate_entry_cli
 
+
+def main():
     parser = argparse.ArgumentParser(description="The machine to generate changelogs.")
     parser.add_argument("entry", help="To create an entry.", action="store_true")
     parser.add_argument(
@@ -21,3 +22,7 @@ if __name__ == "__main__":
         generate_changelog_cli()
     else:
         args = parser.parse_known_args()
+
+
+if __name__ == "__main__":
+    main()

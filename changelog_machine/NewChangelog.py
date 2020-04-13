@@ -4,7 +4,7 @@ from os import walk
 
 import yaml
 
-from src.Config import Config
+from changelog_machine.Config import Config
 
 
 def render_title(version):

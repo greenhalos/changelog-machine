@@ -1,6 +1,6 @@
 import pytest
 
-from src.versions.VersionUtil import VersionNumber
+from changelog_machine.versions.VersionUtil import VersionNumber
 
 
 class TestVersionNumber:

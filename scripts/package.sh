@@ -13,4 +13,4 @@ echo "### Building dist ###"
 python3 setup.py sdist bdist_wheel
 
 echo "### Uploading ###"
-python3 -m twine upload --repository testpypi dist/* 
+python3 -m twine upload --repository pypi dist/*

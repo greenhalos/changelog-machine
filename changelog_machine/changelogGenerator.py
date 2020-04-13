@@ -2,9 +2,9 @@ import argparse
 import os
 import re
 
-from src.Config import Config
-from src.NewChangelog import new_changelog, delete_unreleased_yaml
-from src.versions.VersionUtil import sort_versions
+from changelog_machine.Config import Config
+from changelog_machine.NewChangelog import new_changelog, delete_unreleased_yaml
+from changelog_machine.versions.VersionUtil import sort_versions
 
 
 def generate_changelog_cli():

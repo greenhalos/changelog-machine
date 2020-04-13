@@ -1,7 +1,7 @@
 import os
 
-from src.changelogGenerator import _generate_changelog
-from src.entryGenerator import _generate_entry
+from changelog_machine.changelogGenerator import _generate_changelog
+from changelog_machine.entryGenerator import _generate_entry
 
 
 def content_of_setup(path):
