@@ -14,3 +14,12 @@ python3 setup.py sdist bdist_wheel
 
 echo "### Uploading ###"
 python3 -m twine upload --repository pypi dist/*
+
+echo "### Push tag to github"
+CHANGELOG_MACHINE_VERSION=$(python3 setup.py --version)
+git add setup.py
+git commit -m "Release version $CHANGELOG_MACHINE_VERSION"
+git tag -a "v$CHANGELOG_MACHINE_VERSION" -m "Release of version $CHANGELOG_MACHINE_VERSION"
+git push
+git push --tags
+
