@@ -1,0 +1,5 @@
+---
+#changelog_file: "CHANGELOG.md" ## This is a default value
+#unreleased_changelog_entries_path: "./changelogs/unreleased" ## This is a default value
+issue_url: "https://github.com/greenhalos/changelog_machine/issues/{id}"
+merge_request_url: "https://github.com/greenhalos/changelog_machine/pulls/{id}"

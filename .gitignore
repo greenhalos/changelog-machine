@@ -7,9 +7,8 @@ build/
 changelog-machine.spec
 .venv
 changelog_machine.egg-info
-changelogs
-CHANGELOG.md
-CHANGELOG.md.bak
 scripts/quickTest.sh
 !tests/changelog_machine/integration_tests/*/expected/**
 !tests/changelog_machine/integration_tests/*/setup/**
+tmp/
+
