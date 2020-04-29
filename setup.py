@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="changelog-machine",
-    version="0.19.0",
+    version="0.20.0",
     author="Ben Antony",
     author_email="antony@greenhalos.lu",
     description="A tool to generate changelogs integrated in a pull/merge request workflow",
